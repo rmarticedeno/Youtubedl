@@ -1,0 +1,2 @@
+openpyxl==3.0.5
+youtube-dl==2020.9.6
