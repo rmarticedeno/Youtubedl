@@ -1,5 +1,6 @@
 import youtube_dl
 from YVideo import YVideo
+from openpyxl import Workbook
 
 
 def Get_Videos(url):
@@ -37,3 +38,27 @@ def Get_Videos(url):
                 )
 
     return videos
+
+def Save_to_Excel(vlist, name):
+    '''
+    Save YVideos List to name.xlsx file
+    '''
+
+    wb = Workbook()
+    ws = wb.active
+
+    for i,video in enumerate(vlist):
+        ws.cell(row=i+1, column=1, value=video.title)
+        ws.cell(row=i+1, column=2, value=video.url)
+    
+    wb.save(f'{name}.xlsx')
+
+
+def Get_To_Excel(url, name):
+    '''
+    Extract Yvideos from url to name.xlsx file
+    '''
+
+    vids = Get_Videos(url)
+    Save_to_Excel(vids, name)
+
