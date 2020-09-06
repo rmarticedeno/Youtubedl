@@ -1,5 +1,5 @@
 import youtube_dl
-from YVideo import YVideo
+from .YVideo import YVideo
 from openpyxl import Workbook
 
 
